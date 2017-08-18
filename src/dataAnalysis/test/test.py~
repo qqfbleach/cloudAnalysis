@@ -1,0 +1,4 @@
+#from algorithms.svm_nonlinear import plot_svm_nonlinear
+import algorithms
+
+plot_svm_nonlinear.plot()
