@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
 """
 ==============
 Non-linear SVM
@@ -14,6 +17,7 @@ print(__doc__)
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import svm
+from algorithms.utils import fileop
 
 def plot():
     xx, yy = np.meshgrid(np.linspace(-3, 3, 500),
@@ -40,4 +44,6 @@ def plot():
     plt.xticks(())
     plt.yticks(())
     plt.axis([-3, 3, -3, 3])
+    
+    fileop.saveplot(plt)
     plt.show()
