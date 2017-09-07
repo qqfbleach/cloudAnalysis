@@ -25,5 +25,10 @@ div.left-tab {
 
 
 /*----instance start----*/
-
+.instance-operation-btn{
+    cursor: pointer;
+}
+.instance-operation-cls{
+    padding-left: 10px
+}
 /*----instance end----*/
