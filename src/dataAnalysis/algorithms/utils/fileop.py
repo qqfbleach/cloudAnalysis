@@ -17,5 +17,5 @@ def saveplot(plt):
     if os.access(fpath, os.F_OK) == True:
         os.open(fpath, os.O_RDWR|os.O_TRUNC)
     else:
-        os.open(fpath, os.O_RDWR|os.O_CREAT);
+        os.open(fpath, os.O_RDWR|os.O_CREAT)
     plt.savefig(fpath)
