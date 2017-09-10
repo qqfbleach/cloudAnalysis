@@ -1,6 +1,6 @@
 <button id="btn-create" class="btn btn-success btn-sm" ng-click="createInstance()">Create</button>
 
-<table class="table table-hover">
+<table class="table table-hover instance-table-cls">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,13 +16,14 @@
       <td>{{instance.description}}</td>
       <td>{{instance.node}}</td>
       <td>
-        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ng-style="{{instance.progress}}">
-          {{instance.progressText}}
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ng-style="{{instance.process}}">
+          {{instance.processText}}
         </div>
+        {{instance.notDeployedText}}
       </td>
       <td>
-        <span class="glyphicon glyphicon-play-circle instance-operation-btn instance-operation-cls" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-trash instance-operation-btn instance-operation-cls" aria-hidden="true"></span>
+        <span id="instance_start_{{instance.id}}" ng-click="start_instance(instance.id)" class="glyphicon glyphicon-play-circle instance-operation-btn instance-operation-cls" aria-hidden="true"></span>
+        <span id="instance_delete_{{instance.id}}" ng-click="delete_instance(instance.id)" class="glyphicon glyphicon-trash instance-operation-btn instance-operation-cls" aria-hidden="true"></span>
         
       </td>
     </tr>

@@ -19,7 +19,7 @@ div.left-tab {
     float: right;
 }
 .right-tab-title-cls{
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 }
 /*----tab end----*/
 
@@ -29,6 +29,15 @@ div.left-tab {
     cursor: pointer;
 }
 .instance-operation-cls{
-    padding-left: 10px
+    padding-left: 10px;
+}
+.instance-table-cls{
+    margin-top: 20px;
+}
+.create-instance-input-cls{
+    width:200px;
+}
+#instance-create-btn{
+    margin-top: 20px;
 }
 /*----instance end----*/
