@@ -15,6 +15,8 @@ The color map illustrates the decision function learned by the SVC.
 print(__doc__)
 
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn import svm
 from algorithms.utils import fileop
