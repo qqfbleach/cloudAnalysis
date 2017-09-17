@@ -20,8 +20,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn import svm
 from algorithms.utils import fileop
+from algorithms.utils import monitor
 
 def plot():
+    monitor.sendcurstatus(0, "Start progress")
     xx, yy = np.meshgrid(np.linspace(-3, 3, 500),
                          np.linspace(-3, 3, 500))
     np.random.seed(0)
@@ -49,3 +51,4 @@ def plot():
     
     fileop.saveplot(plt)
     plt.show()
+    monitor.sendcurstatus(1, "End progress")

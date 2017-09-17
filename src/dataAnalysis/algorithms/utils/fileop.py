@@ -4,18 +4,36 @@
 import os
 import time
 
+def pathexist(path):
+    if os.access(path, os.F_OK) == True:
+        return True
+    else:
+        return False
+
 def saveplot(plt):
     fparentpath = os.path.dirname(os.getcwd())
     fresultpath = fparentpath + '/result/'
 
-    if os.access(fresultpath, os.F_OK) == False:
+    if pathexist(fresultpath) == False:
         os.mkdir(fresultpath)
 
     fname = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) + '.png'
     fpath = fresultpath + fname
     
-    if os.access(fpath, os.F_OK) == True:
-        os.open(fpath, os.O_RDWR|os.O_TRUNC)
+    if pathexist(fpath) == True:
+        fd = os.open(fpath, os.O_RDWR|os.O_TRUNC)
     else:
-        os.open(fpath, os.O_RDWR|os.O_CREAT)
+        fd = os.open(fpath, os.O_RDWR|os.O_CREAT)
     plt.savefig(fpath)
+    os.close(fd)
+
+def getresultfilename():
+    fparentpath = os.path.dirname(os.getcwd())
+    fresultpath = fparentpath + '/result/'
+
+    if pathexist(fresultpath) == False:
+        os.mkdir(fresultpath)
+
+    fname = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) + '.txt'
+    fpath = fresultpath + fname
+    return fpath
