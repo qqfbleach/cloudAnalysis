@@ -26,3 +26,14 @@ def saveplot(plt):
         fd = os.open(fpath, os.O_RDWR|os.O_CREAT)
     plt.savefig(fpath)
     os.close(fd)
+
+def getresultfilename():
+    fparentpath = os.path.dirname(os.getcwd())
+    fresultpath = fparentpath + '/result/'
+
+    if pathexist(fresultpath) == False:
+        os.mkdir(fresultpath)
+
+    fname = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) + '.txt'
+    fpath = fresultpath + fname
+    return fpath
