@@ -57,5 +57,6 @@ def sendstatus(process,msg,ishttps):
         httpsConn.close
 
 def sendcurstatus(process,msg):
-    msg = msg + " in function " + sys._getframe().f_back.f_code.co_name
+    #msg = msg + " in function " + sys._getframe().f_back.f_code.co_name
+    #print msg
     sendstatus(process, msg, https)
