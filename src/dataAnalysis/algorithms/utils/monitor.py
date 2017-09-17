@@ -8,7 +8,7 @@ import json
 
 https = False
 url = "/cloud/v1/instance/status/:"
-serverinfo = "/home/swh/server_info"
+serverinfo = "/home/server_info"
        
 def gethost():
     if fileop.pathexist(serverinfo) == True:
