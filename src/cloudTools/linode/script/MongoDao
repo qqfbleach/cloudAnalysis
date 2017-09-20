@@ -11,3 +11,16 @@
         
         logger.info("MongoDao.updateFields end!");
     }
+   public List<DBObject> find(T data)
+        throws Exception
+    {
+        logger.info("MongoDao.find begin! id is " + Common.getInstance().entity2Json(data));
+        
+        DBObject newObject = new BasicDBObject();
+        
+        newObject = Common.getInstance().entity2Object(data);
+        
+        List<DBObject> resultList = dbCollection.find(newObject).toArray();
+        logger.info("MongoDao.find end!result+ " + resultList);
+        return resultList;
+    }
