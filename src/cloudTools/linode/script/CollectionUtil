@@ -1,0 +1,9 @@
+public static boolean isCollectionNull(Collection c)
+    {
+        return null == c;
+    }
+
+    public static boolean isCollectionEmpty(Collection c)
+    {
+        return null == c || c.isEmpty();
+    }
