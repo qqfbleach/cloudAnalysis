@@ -1,3 +1,4 @@
+public final class CollectionUtil
 public static boolean isCollectionNull(Collection c)
     {
         return null == c;
