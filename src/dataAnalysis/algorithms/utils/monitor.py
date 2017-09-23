@@ -3,6 +3,7 @@
 
 import httplib,urllib
 import sys
+import os
 from algorithms.utils import fileop
 import json
 import threading
@@ -65,7 +66,7 @@ def sendstatus(curstatus,ishttps):
     else:
         httpsConn = httplib.HTTPConnection(host)
     body = {
-            "task_id":3344,
+            "task_id":os.getpid(),
             "task_result":"",
             "process":str(process),
             "status":3
