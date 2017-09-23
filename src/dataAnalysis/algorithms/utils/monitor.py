@@ -56,7 +56,7 @@ def getnodeid():
 
 def sendstatus(curstatus,ishttps):
     process = curstatus.process
-    msg = curstatus.message
+    #msg = curstatus.message
     host = gethost()
     if ishttps == True:
         httpsConn = httplib.HTTPSConnection(host)
@@ -67,8 +67,8 @@ def sendstatus(curstatus,ishttps):
     body = {
             "task_id":3344,
             "task_result":"",
-            "process":process,
-            "status":msg
+            "process":str(process),
+            "status":3
            }
     url = geturl()
     httpsConn.request("POST", url, json.JSONEncoder().encode(body))
