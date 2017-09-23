@@ -10,6 +10,8 @@ import threading
 
 https = False
 serverinfo = "/home/server_info"
+host = "180.117.170.45:8000"
+url = "/cloud/v1/instance/linode/"
 
 statuslist = []
 
@@ -56,9 +58,11 @@ def getnodeid():
     return nodeid
 
 def sendstatus(curstatus,ishttps):
+    global host
+    global url
     process = curstatus.process
     #msg = curstatus.message
-    host = gethost()
+    #host = gethost()
     if ishttps == True:
         httpsConn = httplib.HTTPSConnection(host)
         sock = socket.create_connection((httpsConn.host, httpsConn.port))
@@ -71,8 +75,10 @@ def sendstatus(curstatus,ishttps):
             "process":str(process),
             "status":3
            }
-    url = geturl()
-    httpsConn.request("POST", url, json.JSONEncoder().encode(body))
+    headers={'content-type':'application/json'}
+    #url = geturl()
+    lurl = url + str(getnodeid())
+    httpsConn.request("POST", lurl, json.JSONEncoder().encode(body), headers)
     res = httpsConn.getresponse()
     print res.status, res.reason
     if httpsConn:
