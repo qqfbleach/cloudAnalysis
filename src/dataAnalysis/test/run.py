@@ -5,8 +5,10 @@ import sys
 sys.path.append("..")
 #from algorithms.svm_nonlinear import plot_svm_nonlinear
 from algorithms.svm import svm
+from algorithms.utils import monitor
 
 if __name__ == "__main__":
+    monitor.startlisten()
     len = len(sys.argv)
     if len >= 2:
         posi = sys.argv[1]
