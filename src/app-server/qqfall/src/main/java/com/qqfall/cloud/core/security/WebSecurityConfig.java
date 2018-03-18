@@ -42,7 +42,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //		.and().formLogin().loginPage("/login").permitAll();
 //		.and().logout().invalidateHttpSession(true).clearAuthentication(true)
 //				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout").permitAll();
-
+//
+		 http
+         .csrf().disable()
+         .authorizeRequests()
+         .antMatchers("/cloud/v1/instance/**").permitAll();
 		 http
 		 .authorizeRequests()
 		 .anyRequest().authenticated()

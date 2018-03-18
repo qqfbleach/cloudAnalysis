@@ -37,3 +37,28 @@
         }
     ]
 }
+
+
+{
+"id":"",
+"name":"",
+"description":"",
+"dateSetId":"",
+"hostConfig": {
+"type":"linode/digitalocean/auto",
+                "core": 8,
+                "memory": 8096,
+                "traffic": 100,
+               "task_id":3344,
+               "task_result":"",
+               "node_ip":"10.0.0.2", 
+               "nodeId":"",
+              "process":"" ,
+              "status":6,
+"error_code":"",
+"error_msg":""
+
+            }
+"userId":"",
+  "timestamp":""
+}
