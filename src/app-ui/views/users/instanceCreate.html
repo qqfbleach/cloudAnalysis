@@ -11,8 +11,9 @@
     <div class="form-group create-instance-input-cls">
         <p>Node size:</p>
         <div class="form-group">
-            <select class="form-control input-xm" ng-init="selectedName = node_options[0]" ng-model="selectedName" ng-options="x for x in node_options">
+            <select class="form-control input-xm" ng-init="selectedObj = node_options[0]" ng-model="selectedObj" ng-options="x.size for x in node_options">
             </select>
+
         </div>
     </div>
 

@@ -42,39 +42,48 @@ app.controller("instanceCtrl", function ($scope, $http, $state) {
                 tmp.id = data[i].id;
                 tmp.name = data[i].name;
                 tmp.description = data[i].description;
-                if (data[i].host_config != undefined) {
-                    tmp.node = "Core:" + data[i].host_config.core + " Memory:" + data[i].host_config.memory;
+                if (data[i].host != undefined) {
+                    tmp.node = "Core:" + data[i].host.core + " Memory:" + data[i].host.memory;
                 }
 
-                if (data[i].status == 0) {
+                if(null == data[i].host)
+                {
+                    data_instance.push(tmp);
+                    continue;
+                }
+                
+                var status=data[i].host.status;
+                var processs=data[i].host.process;
+               
+                if (status == 0) {
                     tmp.notDeployedText = "Not deployed";
                     clear_interval_flag = false;
-                } else if (data[i].status == 1) {
+                } else if (status == 1) {
                     tmp.process = { "width": "25%" };
                     tmp.processText = "Starting " + "20%";
                     clear_interval_flag = false;
-                } else if (data[i].status == 2) {
+                } else if (status == 2) {
                     tmp.notDeployedText = "Deploy success";
-                } else if (data[i].status == 3) {
+                } else if (status == 3) {
                     tmp.notDeployedText = "";
                     var process = "40%";
-                    if (data[i].process == null) {
+                    if (processs == null) {
                         tmp.process = { "width": process };
                         clear_interval_flag = false;
                         tmp.processText = "Deploying " + process;
-                    } else if (data[i].process != undefined && data[i].process != "") {
-                        if (parseFloat(data[i].process) >= 1) {
+                    } else if (processs != undefined && processs != "") {
+                        if (parseFloat(processs) >= 1) {
                             tmp.notDeployedText = "Deploy success";
                         }
                         else {
-                            process = parseFloat(data[i].process) * 50 + 50 + "%";
+                            process = parseFloat(processs) * 50 + 50 + "%";
                             tmp.process = { "width": process };
                             clear_interval_flag = false;
                             tmp.processText = "Analysing data " + process;
                         }
                     }
 
-                } else if (data[i].status == 8) {
+                } else if (status == 8) {
                     tmp.process = { "width": "50%" };
                     tmp.processText = "Host created " + "50%";
                     clear_interval_flag = false;
@@ -92,10 +101,10 @@ app.controller("instanceCtrl", function ($scope, $http, $state) {
     }
 
     function start_instance(id) {
-        var start_data = { "status": 1 };
+        var start_data = { "action": "start", "instanceId": id };
         $http({
             method: 'post',
-            url: '/cloud/v1/instance/status/' + id,
+            url: '/cloud/v1/instance/action/',
             data: start_data
         }).then(function sucessCallback(response) {
             getInstanceData();

@@ -28,12 +28,12 @@ app.factory('myInterceptor', ['$log', function($log,$q,$urlRouterProvider) {
         // 进行预处理
         // ....
         if (typeof response.data === 'string') {
-            if (response.data.indexOf instanceof Function &&
-                response.data.indexOf('_csrf') != -1) {
-                    window.location = '/login';
-                    // alert("login alert");
-                //window.location = window.location.origin + "login"; // just in case
-            }
+            // if (response.data.indexOf instanceof Function &&
+            //     response.data.indexOf('_csrf') != -1) {
+            //         window.location = '/login';
+            //         // alert("login alert");
+            //     //window.location = window.location.origin + "login"; // just in case
+            // }
         }
             
         return response || $q.when(reponse);
@@ -44,8 +44,9 @@ app.factory('myInterceptor', ['$log', function($log,$q,$urlRouterProvider) {
         // 对失败的响应进行处理
         // ...
         if (canRecover(rejection)) {
-            if (rejection.status === 403 || rejection.status === 401 ||rejection.status === 404) {
-                window.location = '/login'
+            if (rejection.status === 403 || rejection.status === 401 ) {
+                window.location = '/login';
+                return;
                 // $urlRouterProvider.otherwise("/login");
                 //alert(rejection.statusText);
               } 
@@ -100,7 +101,18 @@ app.config(function($stateProvider,$urlRouterProvider){
     ).state(
         "user",{
             url:"/user",
-            templateUrl:"/views/users/userHome.html" //用户页面
+            templateUrl:"/views/users/userHome.html", //用户页面
+            resolve : {
+                data : function($stateParams, $q) {
+                    //TODO 认证接口 需要认证的页面中调用
+                    // var deferred = $q.defer();
+                    // service.functionnnnnnn(params).then(function(result) {
+                        
+                    //     deferred.resolve(result.data);
+                    // });
+                    // return deferred.promise;
+                }
+            }
         }
     ).state(
         "user.instance",{
