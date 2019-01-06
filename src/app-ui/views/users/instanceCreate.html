@@ -1,0 +1,24 @@
+<form role="form">
+    <div class="form-group create-instance-input-cls">
+        <p>Name:</p>
+        <input type="text" class="form-control" width="200px" id="name" ng-model="instanceName" placeholder="Please input name">
+    </div>
+    <div class="form-group create-instance-input-cls">
+        <p>Description:</p>
+        <input type="text" class="form-control" id="description" ng-model="instanceDes" placeholder="Please input description">
+    </div>
+
+    <div class="form-group create-instance-input-cls">
+        <p>Node size:</p>
+        <div class="form-group">
+            <select class="form-control input-xm" ng-init="selectedObj = node_options[0]" ng-model="selectedObj" ng-options="x.size for x in node_options">
+            </select>
+
+        </div>
+    </div>
+
+</form>
+
+<div id="instance-create-btn">
+    <button id="instance-btn-create" ng-disabled="instanceBtnDisabled" class="btn btn-success btn-sm" ng-click="submitInstance()">OK</button>
+</div>

@@ -1,0 +1,19 @@
+.main-body{
+    max-width:1200px;
+    margin:0 auto;
+}
+.main-page {
+    background-image:url('/img/bg.jpg');
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%
+}
+#bgImg{
+    margin-top: -20px;
+}
+.hello-cls{
+    margin-top: -700px;
+    padding-left: 120px;
+    padding-right: 120px;
+    color: beige;
+}

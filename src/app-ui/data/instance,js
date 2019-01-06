@@ -1,0 +1,64 @@
+{
+    "instances":[
+        {
+            "id":"702cb709-8e65-434a-9bdd-3e2a5120eb5e",
+            "name":"ins2",
+            "description":"description",
+            "host_config": {
+                "core": 8,
+                "memory": 8096,
+                "traffic": 100
+            },
+            "task_id":3344,
+            "task_result":"",
+            "node_ip":"10.0.0.2", 
+            "process":"" ,
+            "status":6,  
+            "error_code":"",
+            "error_msg":""
+
+        },
+        {
+            "id":"702cb709-8e65-434a-9bdd-3e2a5120eb5e",
+            "name":"ins1",
+            "description":"description",
+            "host_config": {
+                "core": 8,
+                "memory": 8096,
+                "traffic": 100
+            },
+            "task_id":3344,
+            "task_result":"",
+            "node_ip":"10.0.0.2",
+            "process":"" ,
+            "status":0,   
+            "error_code":"",
+            "error_msg":""
+        }
+    ]
+}
+
+
+{
+"id":"",
+"name":"",
+"description":"",
+"dateSetId":"",
+"hostConfig": {
+"type":"linode/digitalocean/auto",
+                "core": 8,
+                "memory": 8096,
+                "traffic": 100,
+               "task_id":3344,
+               "task_result":"",
+               "node_ip":"10.0.0.2", 
+               "nodeId":"",
+              "process":"" ,
+              "status":6,
+"error_code":"",
+"error_msg":""
+
+            }
+"userId":"",
+  "timestamp":""
+}
