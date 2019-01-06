@@ -32,5 +32,4 @@ README.html
 
 # Log Files
 *.log
-nginx/logs
 nginx.pid
